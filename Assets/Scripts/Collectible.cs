@@ -12,7 +12,7 @@ public class Collectible : MonoBehaviour
             
             player.AddMoney(Value);
 
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }   
 }

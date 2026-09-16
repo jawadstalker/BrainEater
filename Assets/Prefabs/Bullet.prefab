@@ -4974,7 +4974,7 @@ MonoBehaviour:
   TravelTime: 3
   Ground:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
 --- !u!95 &3426941177311757111
 Animator:
   serializedVersion: 7

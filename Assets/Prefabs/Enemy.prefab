@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 4793929850834594194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: -0.212, z: 0}
+  m_LocalPosition: {x: 0.212, y: -0.212, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -249,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373337088713222812}
-  - component: {fileID: 2221623746562261224}
+  - component: {fileID: 6238942278840352008}
   - component: {fileID: 457269411113823193}
   m_Layer: 6
   m_Name: Hurtbox
@@ -273,8 +273,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 667963830646973672}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2221623746562261224
-CircleCollider2D:
+--- !u!61 &6238942278840352008
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -307,8 +307,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0038398744, y: 0.0115225315}
-  m_Radius: 0.2925926
+  m_Offset: {x: 0.010270596, y: -0.0014672279}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.44538212, y: 0.48059607}
+  m_EdgeRadius: 0
 --- !u!114 &457269411113823193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,8 +344,8 @@ GameObject:
   m_Component:
   - component: {fileID: 667963830646973672}
   - component: {fileID: 6503134440387543992}
-  - component: {fileID: 2603343368588082568}
   - component: {fileID: 947721534134439145}
+  - component: {fileID: 6601818608590160456}
   - component: {fileID: 8064225665343222028}
   m_Layer: 6
   m_Name: Enemy
@@ -391,8 +401,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &2603343368588082568
-CircleCollider2D:
+--- !u!95 &947721534134439145
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696536777772177016}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 848072394584fac4b8c39728cd1eeb22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &6601818608590160456
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -425,30 +457,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.38
---- !u!95 &947721534134439145
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8696536777772177016}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 848072394584fac4b8c39728cd1eeb22, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Offset: {x: -0.0037199855, y: -0.065102786}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.41965944, y: 0.616823}
+  m_EdgeRadius: 0
 --- !u!114 &8064225665343222028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,11 +484,11 @@ MonoBehaviour:
   moveSpeed: 2
   wallCheck: {fileID: 3032417735735893592}
   groundCheck: {fileID: 8927126520889620336}
-  wallCheckDistance: 0.25
+  wallCheckDistance: 0.19
   groundCheckDistance: 0.56
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   stompBounceForce: 8
   PlayerLayer:
     serializedVersion: 2

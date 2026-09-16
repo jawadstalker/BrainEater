@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -103,6 +105,8 @@ public class Player : MonoBehaviour
 
     private Coroutine LookDownCoroutine = null;
 
+    private bool LoadingLevel = false;
+
     void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
@@ -134,7 +138,11 @@ public class Player : MonoBehaviour
             return;
         }
 
-        ApplyVariableGravity();
+        if(!LoadingLevel)
+        {
+            ApplyVariableGravity();
+        }
+
         if(!IsLanding && AllowMove)
         {
             if(!Crouched && !Shooting)
@@ -274,6 +282,12 @@ public class Player : MonoBehaviour
             Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, force);
             JumpPressed = false;
             JumpReleased = false;
+
+            MovingPlatform isOnPlatform = gameObject.GetComponentInParent<MovingPlatform>();
+            if(isOnPlatform != null)
+            {
+                transform.SetParent(null);
+            }
 
         }
         if(JumpReleased)
@@ -452,24 +466,15 @@ public class Player : MonoBehaviour
         Invulnerable = false;
     }
 
-    private IEnumerator Die()
+    private IEnumerator _LoadLevel(string name, IEnumerator optionalWaitCoroutine = null)
     {
-        RigidbodyType2D oldType = Rb.bodyType;
-        Rb.bodyType = RigidbodyType2D.Static;
-
-
-        AsyncOperation op = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        AsyncOperation op = SceneManager.LoadSceneAsync(name);
 
         op.allowSceneActivation = false;
 
-        float t = Time.time;
-
-        Respawning = true;
-        Dying = true;
-
-        while(Respawning)
+        if(optionalWaitCoroutine != null)
         {
-            yield return null;
+            yield return StartCoroutine(optionalWaitCoroutine);
         }
 
         while(op.progress < 0.9f)
@@ -478,6 +483,31 @@ public class Player : MonoBehaviour
         }
 
         op.allowSceneActivation = true;
+    }
+
+    public void LoadLevel(string name, IEnumerator optionalWaitCoroutine = null)
+    {
+        LoadingLevel = true;
+        StartCoroutine(_LoadLevel(name, optionalWaitCoroutine));
+    }
+
+    private IEnumerator WaitForRespawn()
+    {
+        Respawning = true;
+        Dying = true;
+
+        while(Respawning)
+        {
+            yield return null;
+        }
+    }
+
+    private IEnumerator Die()
+    {
+        RigidbodyType2D oldType = Rb.bodyType;
+        Rb.bodyType = RigidbodyType2D.Static;
+
+        yield return StartCoroutine(_LoadLevel(SceneManager.GetActiveScene().name, WaitForRespawn()));
     }
     
     private IEnumerator MoveCameraUp()
@@ -658,6 +688,14 @@ public class Player : MonoBehaviour
             Rb.linearVelocity = new Vector2(0.0f, Rb.linearVelocityY);
             Shooting = true;
             Crouched = false;
+        }
+    }
+
+    void OnRestart(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            Damage(true);
         }
     }
 

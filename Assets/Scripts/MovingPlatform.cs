@@ -153,9 +153,9 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            foreach (ContactPoint2D contact in collision.contacts)
+            for(int i = 0; i < collision.contactCount; ++i)
             {
-                if (contact.normal.y < -0.5f)
+                if (collision.GetContact(i).normal.y < -0.5f)
                 {
                     //collision.gameObject.GetComponent<Player>().CurrentPlatform = this;
                     collision.transform.SetParent(transform);
