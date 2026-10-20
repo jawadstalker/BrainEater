@@ -84,6 +84,7 @@ public class StroopShape : Puzzle
     {
         if(CorrectCount == CorrectToPass || IncorrectCount == IncorrectToFail)
         {
+            NeuroliaBridge.ReportTask(NeuroliaBridge.TaskStroop, CorrectCount == CorrectToPass, CorrectCount, IncorrectCount);
             OnTestsFinished?.Invoke(CorrectCount == CorrectToPass);
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Puzzle_StroopShape"));
         }

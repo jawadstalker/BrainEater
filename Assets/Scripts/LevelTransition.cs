@@ -40,6 +40,11 @@ public class LevelTransition : MonoBehaviour
                 {
                     GetComponent<Collider2D>().enabled = false;
 
+                    if(NeuroliaBridge.AutoSendOnLevelEnd)
+                    {
+                        NeuroliaBridge.Flush();
+                    }
+
                     collision.gameObject.GetComponent<PlayerInput>().enabled = false;
 
                     float direction = collision.GetContact(i).normal.y < -0.5f ? 1.0f : -1.0f;

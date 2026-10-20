@@ -44,6 +44,7 @@ public class ShapeSize : Puzzle
     {
         if(CorrectCount == CorrectToPass || IncorrectCount == IncorrectToFail)
         {
+            NeuroliaBridge.ReportTask(NeuroliaBridge.TaskShapeSize, CorrectCount == CorrectToPass, CorrectCount, IncorrectCount);
             OnTestsFinished?.Invoke(CorrectCount == CorrectToPass);
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Puzzle_ShapeSize"));
         }
