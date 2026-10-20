@@ -1145,10 +1145,10 @@ TextureImporter:
       name: Tiles2_39
       rect:
         serializedVersion: 2
-        x: 24
-        y: 287
-        width: 173
-        height: 149
+        x: 56
+        y: 304
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

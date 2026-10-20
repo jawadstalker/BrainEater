@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     Animator Anim;
 
+    public GameObject HUD;
+
     [Header("Movement variables")]
     public float CurrentSpeed;
     public float RunSpeed = 3.0f;
@@ -93,6 +95,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Vector2 GroundNormal;
 
+    [Header("Camera controls")]
+
     [Min(0.0f)] public float LookUpOffset = 2.0f;
 
     public float LookUpTime = 0.5f;
@@ -107,6 +111,23 @@ public class Player : MonoBehaviour
 
     private bool LoadingLevel = false;
 
+    [SerializeField] private int Ammo = 1;
+    [SerializeField] private int AmmoAmount = 0;
+
+    public int AmmoAmountToAmmo = 3;
+
+    public RTLTMPro.RTLTextMeshPro AmmoCounter;
+
+    [Header("Shield variables")]
+    private int ShieldAmount = 0;
+
+    public Color ShieldedColor;
+
+    public float ShieldInvulnerableTime = 0.0f;
+
+    private bool Freezed = false;
+
+
     void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
@@ -116,6 +137,8 @@ public class Player : MonoBehaviour
         Anim = GetComponent<Animator>();
 
         Check = GetComponent<GroundCheck>();
+
+        AmmoCounter.text = $"{Ammo}";
     }
 
     #region Updates
@@ -124,6 +147,11 @@ public class Player : MonoBehaviour
         if(Respawning)
         {
             return;
+        }
+
+        if(Freezed)
+        {
+            Rb.linearVelocity = Vector2.zero;
         }
 
         // if (CurrentPlatform != null && IsGrounded)
@@ -266,6 +294,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Freeze(bool freeze)
+    {
+        Freezed = freeze;
+        
+        GetComponent<PlayerInput>().enabled = !freeze;
+
+        HUD.SetActive(!freeze);
+
+        if(freeze)
+        {
+            MoveInput = Vector2.zero;
+            Shooting = false;
+            JumpPressed = JumpReleased = false;
+        }
+    }
+
     private void HandleJump()
     {
         if(IsFalling || Crouched)
@@ -390,27 +434,82 @@ public class Player : MonoBehaviour
         StartCoroutine(FlashCharacter(timeToTarget));
     }
 
+    private IEnumerator MakeInvulnerable(float time)
+    {
+        if(time != 0.0f)
+        {
+            Invulnerable = true;
+
+            yield return new WaitForSeconds(time);
+
+            Invulnerable = false;
+        }
+    }
+
     public void Damage(bool forceKill = false)
     {
-        if(Invulnerable || Respawning)
+        if(Respawning)
         {
             return;
         }
-
-        if(forceKill || TargetScale == 1.0f)
+        
+        if(forceKill)
         {
             StartCoroutine(Die());
             return;
         }
-        
-        TargetScale = 1.0f;
 
-        StartCoroutine(DamageFlash(2.0f));
+        if(Invulnerable)
+        {
+            return;
+        }
+
+        if(ShieldAmount > 0)
+        {
+            ShieldAmount--;
+            HandleShield();
+            StartCoroutine(MakeInvulnerable(ShieldInvulnerableTime));
+            return;
+        }
+        else
+        {
+            StartCoroutine(Die());
+            return;
+        }
+    }
+
+    public void AddAmmo(int amount = 1)
+    {
+        AmmoAmount += amount;
+
+        if(AmmoAmount >= AmmoAmountToAmmo)
+        {
+            Ammo += (AmmoAmount / AmmoAmountToAmmo);
+            AmmoAmount %= AmmoAmountToAmmo;
+
+            AmmoCounter.text = $"{Ammo}";
+        }
+    }
+
+    public void AddShield(int amount = 1)
+    {
+        ShieldAmount += amount;
+        HandleShield();
+    }
+
+    private void HandleShield()
+    {
+        Color color = ShieldAmount > 0 ? ShieldedColor : Color.white;
+
+        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+
+        sr.color = color;
     }
 
     public void Shoot()
     {
         Instantiate(BulletPrefab, ShootSpot.position, ShootSpot.rotation, null).GetComponent<Bullet>().SetDirection(FacingRight);
+        Ammo--;
     } 
 
     public void ShootAvailable()
@@ -619,45 +718,45 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator Dash()
-    {
-        IsDashing = true;
-        CanDash = false;
+    // private IEnumerator Dash()
+    // {
+    //     IsDashing = true;
+    //     CanDash = false;
 
-        float direction = FacingRight ? 1.0f : -1.0f;
+    //     float direction = FacingRight ? 1.0f : -1.0f;
 
-        float gravity = Rb.gravityScale;
+    //     float gravity = Rb.gravityScale;
 
-        // Disable gravity
-        Rb.gravityScale = 0.0f;
+    //     // Disable gravity
+    //     Rb.gravityScale = 0.0f;
 
-        // Dash
-        Rb.linearVelocity = new Vector2(direction * DashSpeed, 0.0f);
+    //     // Dash
+    //     Rb.linearVelocity = new Vector2(direction * DashSpeed, 0.0f);
 
-        yield return new WaitForSeconds(DashDuration);
+    //     yield return new WaitForSeconds(DashDuration);
 
-        // End dash
-        IsDashing = false;
+    //     // End dash
+    //     IsDashing = false;
 
-        // Restore gravity
-        Rb.gravityScale = gravity;
+    //     // Restore gravity
+    //     Rb.gravityScale = gravity;
 
-        // Optional: stop horizontal movement
-        Rb.linearVelocity = new Vector2(0.0f, 0.0f);
+    //     // Optional: stop horizontal movement
+    //     Rb.linearVelocity = new Vector2(0.0f, 0.0f);
 
-        // Cooldown
-        yield return new WaitForSeconds(DashCooldown);
+    //     // Cooldown
+    //     yield return new WaitForSeconds(DashCooldown);
 
-        CanDash = true;
-    }
+    //     CanDash = true;
+    // }
 
-    void OnDash(InputValue value)
-    {
-        if (value.isPressed && CanDash && !IsDashing && AllowMove)
-        {
-            StartCoroutine(Dash());
-        }
-    }
+    // void OnDash(InputValue value)
+    // {
+    //     if (value.isPressed && CanDash && !IsDashing && AllowMove)
+    //     {
+    //         StartCoroutine(Dash());
+    //     }
+    // }
 
     void OnCrouch(InputValue value)
     {
@@ -683,7 +782,7 @@ public class Player : MonoBehaviour
     
     void OnShoot(InputValue value)
     {
-        if(value.isPressed && IsGrounded)
+        if(value.isPressed && IsGrounded && Ammo > 0)
         {
             Rb.linearVelocity = new Vector2(0.0f, Rb.linearVelocityY);
             Shooting = true;

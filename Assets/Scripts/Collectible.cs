@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
         {
             Player player = other.gameObject.GetComponent<Player>();
             
-            player.AddMoney(Value);
+            player.AddAmmo(Value);
 
             Destroy(transform.parent.gameObject);
         }

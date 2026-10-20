@@ -195,17 +195,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c285e552-33ae-45f2-91ea-741ad315b688",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "aa1a7910-a4ec-490c-96a1-84efc367967e",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",

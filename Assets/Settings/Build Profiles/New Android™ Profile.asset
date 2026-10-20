@@ -21,7 +21,15 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/SampleScene.unity
+    m_path: Assets/Scenes/Scene_00.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Scene_01.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Scene_02.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Puzzle_ShapeSize.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Puzzle_StroopShape.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []

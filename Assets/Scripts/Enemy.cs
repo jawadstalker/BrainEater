@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -17,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Combat")]
     [SerializeField] private float stompBounceForce = 8f;
+
+    public static bool Freeze = false;
 
     private Animator Anim;
 
@@ -50,6 +51,12 @@ public class Enemy : MonoBehaviour
     {
         if (dead)
             return;
+
+        if(Freeze)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
         Move();
         CheckForTurn();
@@ -142,7 +149,6 @@ public class Enemy : MonoBehaviour
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
 
         if (playerRb != null &&
-            playerRb.linearVelocity.y < 0f &&
             player.transform.position.y > transform.position.y)
         {
             Stomped(player);

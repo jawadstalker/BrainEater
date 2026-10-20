@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: b22a1517cbba0ce49af35d8d6b2406eb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7697161685599160229
+    second: Neon Game Controls Asset Sheet_0
+  - first:
+      213: 8435124835903673943
+    second: Neon Game Controls Asset Sheet_1
+  - first:
+      213: 7994811888937621179
+    second: Neon Game Controls Asset Sheet_2
+  - first:
+      213: 2988124581929043905
+    second: Neon Game Controls Asset Sheet_3
+  - first:
+      213: 7351402889199948409
+    second: Neon Game Controls Asset Sheet_4
+  - first:
+      213: -7273666857073315862
+    second: Neon Game Controls Asset Sheet_5
+  - first:
+      213: 1482711972128436908
+    second: Neon Game Controls Asset Sheet_6
+  - first:
+      213: 1896606595625047839
+    second: Neon Game Controls Asset Sheet_7
+  - first:
+      213: -1887351116587731342
+    second: Neon Game Controls Asset Sheet_8
+  - first:
+      213: -289213673395781395
+    second: Neon Game Controls Asset Sheet_9
+  - first:
+      213: 1168184983920043399
+    second: Neon Game Controls Asset Sheet_10
+  - first:
+      213: 6854491643511152479
+    second: Neon Game Controls Asset Sheet_11
+  - first:
+      213: -5488177215872931825
+    second: Neon Game Controls Asset Sheet_12
+  - first:
+      213: -1139890486209372772
+    second: Neon Game Controls Asset Sheet_13
+  - first:
+      213: -5805063989608377229
+    second: Neon Game Controls Asset Sheet_14
+  - first:
+      213: 1384535808459875361
+    second: Neon Game Controls Asset Sheet_15
+  - first:
+      213: 6494163444185230244
+    second: Neon Game Controls Asset Sheet_16
+  - first:
+      213: -7221782403428378141
+    second: Neon Game Controls Asset Sheet_17
+  - first:
+      213: 841629130317693506
+    second: Neon Game Controls Asset Sheet_18
+  - first:
+      213: 3966280337812482617
+    second: Neon Game Controls Asset Sheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 680
+        width: 185
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc72e578596714f4da2e017c2b10f4fe
+      internalID: -157405183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 675
+        width: 268
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a00628f418dee4bbb6457c9bd3c3b2
+      internalID: 615451273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 680
+        width: 247
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabbabbbf8c74d14082b97399afa2c9a
+      internalID: 2033129960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 706
+        width: 279
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a759bdab5e005cf48b601eb3a7566ee7
+      internalID: 732343629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 693
+        width: 185
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9814dc1baf889f148ba5d9f9224ce680
+      internalID: -1917713763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 470
+        width: 210
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9aa16286523af49be0a9daa1a6b7e9
+      internalID: 880370093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Game Controls Asset Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 71
+        width: 418
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0fabd33f4f925c4a92cfac44825e55b
+      internalID: -669290346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 51e2998e833fef845b063ae8cc6d0d14
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Neon Game Controls Asset Sheet_0: -157405183
+      Neon Game Controls Asset Sheet_1: 615451273
+      Neon Game Controls Asset Sheet_2: 2033129960
+      Neon Game Controls Asset Sheet_3: 732343629
+      Neon Game Controls Asset Sheet_4: -1917713763
+      Neon Game Controls Asset Sheet_5: 880370093
+      Neon Game Controls Asset Sheet_6: -669290346
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

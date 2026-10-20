@@ -16,5 +16,7 @@ MonoBehaviour:
   - CurrentLevel: Scene_00
     NextLevel: Scene_01
   - CurrentLevel: Scene_01
+    NextLevel: Scene_02
+  - CurrentLevel: Scene_02
     NextLevel: Scene_00
   Fallback: Scene_00
